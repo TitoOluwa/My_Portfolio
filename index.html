@@ -1,100 +1,330 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>TitoOluwa | Data Analyst</title>
-    
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f8fafc;
-        color: #1e293b;
-    }
 
-    header {
-        background-color: #0f172a;
-        color: white;
-        padding: 20px 8%;
-    }
+    <style>
+        /* GENERAL STYLING */
 
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
 
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin-left: 20px;
-    }
+        /* NAVIGATION */
 
-    main {
-        padding: 60px 8%;
-    }
+        header {
+            background-color: #0f172a;
+            color: white;
+            padding: 20px 8%;
+        }
 
-    section {
-        margin-bottom: 80px;
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    h1 {
-        font-size: 48px;
-        color: #0f172a;
-    }
+        nav h2 {
+            margin: 0;
+            font-size: 24px;
+        }
 
-    p {
-        line-height: 1.7;
-    }
-</style>
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #93c5fd;
+        }
+
+        /* HERO SECTION */
+
+        main {
+            padding: 60px 8%;
+        }
+
+        #about {
+            max-width: 850px;
+            padding-top: 30px;
+            padding-bottom: 60px;
+        }
+
+        .intro-label {
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.15;
+            color: #0f172a;
+            margin: 20px 0;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #475569;
+            max-width: 700px;
+        }
+
+        /* BUTTONS */
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: #1e293b;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-outline:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* CONTACT SECTION */
+
+        #contact {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 30px;
+            margin-top: 20px;
+        }
+
+        #contact h2 {
+            color: #0f172a;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+
+        @media (max-width: 768px) {
+
+            header {
+                padding: 20px 5%;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            main {
+                padding: 35px 5%;
+            }
+
+            #about {
+                padding-top: 20px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .intro-text {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 12px 16px;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
 
+    <!-- NAVIGATION -->
+
     <header>
         <nav>
+
             <h2>TitoOluwa</h2>
 
-            <div>
+            <div class="nav-links">
                 <a href="#about">About me</a>
                 <a href="#about">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
+
         </nav>
     </header>
 
+
+    <!-- MAIN CONTENT -->
+
     <main>
+
+        <!-- HERO SECTION -->
+
         <section id="about">
-            <p>DATA ANALYST</p>
 
-            <h1>Turning Data Into<br>Meaningful Insights</h1>
+            <p class="intro-label">
+                DATA ANALYST | ASPIRING DATA SCIENTIST
+            </p>
 
-            <p>
+            <h1>
+                Turning Data Into<br>
+                Meaningful and Useful Insights
+            </h1>
+
+            <p class="intro-text">
                 I use Python, SQL, Excel, and data visualization
                 to explore data, solve business problems,
                 and support better decisions.
             </p>
 
-            <a href="#projects">View My Projects</a>
-            <a href="https://github.com/TitoOluwa">
-                GitHub Profile
-            </a>
+            <!-- BUTTONS -->
+
+            <div class="hero-buttons">
+
+                <a class="btn btn-primary" href="#projects">
+                    View My Projects
+                </a>
+
+                <a class="btn btn-outline"
+                   href="https://github.com/TitoOluwa"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <a class="btn btn-outline"
+                   href="www.linkedin.com/in/oluwatobi-datascientist"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+
+                <a class="btn btn-outline"
+                   href="https://medium.com/@titobiloluwaa01"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Medium
+                </a>
+
+                <a class="btn btn-outline"
+                   href="mailto:oluwatobiadebayo.data@gmail.com">
+                    Email Me
+                </a>
+
+                <a class="btn btn-primary"
+                   href="Oluwatobi_Adebayo_CV.pdf"
+                   download>
+                    Download CV
+                </a>
+
+            </div>
+
         </section>
+
+
+        <!-- PROJECTS PLACEHOLDER -->
 
         <section id="projects">
+
             <h2>Featured Projects</h2>
-            <p>Explore my data analytics portfolio.</p>
+
+            <p>
+                Explore my data analytics portfolio.
+                Project showcases coming soon.
+            </p>
+
         </section>
+
+
+        <!-- CONTACT -->
 
         <section id="contact">
+
             <h2>Let's Connect</h2>
-            <p>I'm open to data analyst opportunities.</p>
+
+            <p>
+                I'm open to data analyst opportunities
+                and collaborations.
+            </p>
+
+            <a class="btn btn-primary"
+               href="mailto:oluwatobiadebayo.data@gmail.com">
+                Get In Touch
+            </a>
+
         </section>
+
     </main>
 
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 TitoOluwa | Data Analyst Portfolio
+        </p>
+
+    </footer>
+
 </body>
+
 </html>
