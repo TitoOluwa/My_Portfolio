@@ -188,6 +188,88 @@
                 padding: 12px 16px;
             }
         }
+
+        
+/* DARK THEME + MINT ACCENT */
+:root {
+  --bg: #111827;
+  --card-bg: #1f2937;
+  --mint: #34d399;
+  --mint-hover: #6ee7b7;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: #374151;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+header,
+nav {
+  background-color: var(--bg);
+}
+
+h1, h2, h3 {
+  color: var(--text);
+}
+
+p {
+  color: var(--muted);
+}
+
+a {
+  color: var(--mint);
+}
+
+a:hover {
+  color: var(--mint-hover);
+}
+
+/* Buttons */
+button,
+.btn,
+.button {
+  background-color: var(--mint);
+  color: #111827;
+  border: none;
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+  background-color: var(--mint-hover);
+}
+
+/* Project cards */
+.project-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mint);
+}
+
+.project-tools {
+  color: var(--mint);
+}
+
+/* Section spacing and subtle dividers */
+section {
+  border-color: var(--border);
+}
+
+footer {
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
     </style>
 
 </head>
