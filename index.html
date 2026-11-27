@@ -1,35 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TitoOluwa_Data_Portfolio</title>
+    <meta name="description" content="TitoOluwa's data analytics portfolio.">
+    <title>TitoOluwa's_Data_Portfolio</title>
 
     <style>
-        /* GENERAL STYLING */
+        /*THEME & BASE*/
+        :root {
+            --bg: #111827;
+            --surface: #1f2937;
+            --surface-hover: #263445;
+            --mint: #34d399;
+            --mint-hover: #6ee7b7;
+            --text: #f3f4f6;
+            --muted: #9ca3af;
+            --border: #374151;
+            --header-bg: #0b1220;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        /* NAVIGATION */
+        img {
+            max-width: 100%;
+        }
 
+        a {
+            color: var(--mint);
+        }
+
+        a:hover {
+            color: var(--mint-hover);
+        }
+
+        h1, h2, h3 {
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+        section {
+            scroll-margin-top: 30px;
+        }
+
+        .section-label {
+            color: var(--mint);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 0 0 12px;
+        }
+
+        /*NAVIGATION*/
         header {
-            background-color: #0f172a;
-            color: white;
+            background: var(--header-bg);
             padding: 20px 8%;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.65);
         }
 
         nav {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 24px;
         }
 
         nav h2 {
@@ -39,812 +92,704 @@
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            flex-wrap: wrap;
+            gap: 24px;
         }
 
-        nav a {
-            color: white;
+        .nav-links a {
+            color: var(--text);
             text-decoration: none;
             font-size: 14px;
         }
 
-        nav a:hover {
-            color: #93c5fd;
+        .nav-links a:hover {
+            color: var(--mint);
         }
 
-        /* HERO SECTION */
-
+        /*PAGE LAYOUT & BUTTONS*/
         main {
-            padding: 60px 8%;
+            padding: 0 8%;
         }
 
-        #about {
-            max-width: 850px;
-            padding-top: 30px;
-            padding-bottom: 60px;
-        }
-
-        .intro-label {
-            color: #2563eb;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-        
-        h1 {
-            font-size: clamp(38px, 5vw, 60px);
-            line-height: 1.15;
-            color: #0f172a;
-            margin: 20px 0;
-        }
-
-        .intro-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #475569;
-            max-width: 700px;
-        }
-
-        /* BUTTONS */
-
-        .hero-buttons {
+        .btn-row {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 30px;
+            margin-top: 28px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 13px 20px;
-            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 999px;
+            border: 1px solid transparent;
             text-decoration: none;
             font-size: 14px;
-            font-weight: bold;
-            transition: 0.2s;
+            font-weight: 700;
+            transition: background 0.2s ease, color 0.2s ease,
+                        border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
         }
 
         .btn-primary {
-            background-color: #2563eb;
-            color: white;
+            background: var(--mint);
+            color: #111827;
         }
 
         .btn-primary:hover {
-            background-color: #1d4ed8;
+            background: var(--mint-hover);
+            color: #111827;
         }
 
         .btn-outline {
-            background-color: white;
-            color: #1e293b;
-            border: 1px solid #cbd5e1;
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
         }
 
         .btn-outline:hover {
-            background-color: #e2e8f0;
+            border-color: var(--mint);
+            color: var(--mint);
+            background: rgba(52, 211, 153, 0.06);
         }
 
-        /* CONTACT SECTION */
-
-        #contact {
-            border-top: 1px solid #e2e8f0;
-            padding-top: 30px;
-            margin-top: 20px;
+        /*HERO: PHOTO LEFT, TEXT RIGHT*/
+        #about {
+            padding: 76px 0 90px;
         }
 
+        .hero-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+            align-items: center;
+            gap: 64px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo {
+            display: block;
+            width: 100%;
+            max-width: 380px;
+            height: 470px;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid var(--mint);
+            border-radius: 26px;
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            min-width: 0;
+        }
+
+        .intro-label {
+            color: var(--mint);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 0 0 18px;
+        }
+
+        #about h1 {
+            font-size: clamp(76px, 8.5vw, 120px);
+            line-height: 1.02;
+            letter-spacing: -0.045em;
+            margin: 0 0 24px;
+            overflow-wrap: anywhere;
+        }
+
+        .intro-text {
+            max-width: 680px;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /*ABOUT ME + SKILLS*/
+        .about-skills-section {
+            padding: 70px 0 90px;
+            border-top: 1px solid var(--border);
+        }
+
+        .about-skills-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            align-items: start;
+            gap: 60px;
+        }
+
+        .about-content,
+        .skills-content {
+            min-width: 0;
+        }
+
+        .about-content h2,
+        .skills-content h2,
+        #projects h2,
         #contact h2 {
-            color: #0f172a;
+            font-size: 36px;
+            margin: 0 0 24px;
         }
 
-        /* FOOTER */
+        .about-content > p:not(.section-label) {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 0 0 18px;
+        }
 
-        footer {
-            background-color: #0f172a;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 20px;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            display: block;
+            min-height: 150px;
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            text-decoration: none;
+            transition: transform 0.2s ease, border-color 0.2s ease,
+                        background 0.2s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--mint);
+            background: var(--surface-hover);
+        }
+
+        .skill-card h3 {
+            color: var(--mint);
+            font-size: 21px;
+            margin: 0;
+        }
+
+        .skill-card:hover h3 {
+            color: var(--mint-hover);
+        }
+
+        .skill-line {
+            display: block;
+            width: 35px;
+            height: 2px;
+            background: var(--mint);
+            margin: 14px 0;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /*PROJECTS*/
+        #projects {
+            padding: 70px 0 90px;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-intro {
+            max-width: 700px;
+            margin: 0 0 30px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--mint);
+        }
+
+        .project-card h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .project-card p {
+            margin: 0;
+        }
+
+        .project-tools {
+            color: var(--mint);
             font-size: 14px;
         }
 
-        /* MOBILE RESPONSIVENESS */
+        .project-card a {
+            margin-top: auto;
+            font-weight: 700;
+            text-decoration: none;
+        }
 
-        @media (max-width: 768px) {
+        .project-card a:hover {
+            text-decoration: underline;
+        }
 
+        /*CONTACT & FOOTER*/
+        #contact {
+            padding: 60px 0 75px;
+            border-top: 1px solid var(--border);
+        }
+
+        #contact p {
+            margin: 0;
+        }
+
+        footer {
+            background: var(--header-bg);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 22px 8%;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /*RESPONSIVE*/
+        @media (max-width: 900px) {
+            main {
+                padding: 0 6%;
+            }
+
+            .hero-layout {
+                grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+                gap: 36px;
+            }
+
+            .profile-photo {
+                height: 380px;
+            }
+
+            #about h1 {
+                font-size: clamp(64px, 8vw, 90px);
+            }
+
+            .about-skills-layout {
+                gap: 36px;
+            }
+        }
+
+        @media (max-width: 760px) {
             header {
                 padding: 20px 5%;
             }
 
             nav {
                 flex-direction: column;
-                gap: 20px;
+                gap: 18px;
             }
 
             .nav-links {
-                flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 14px 20px;
             }
 
             main {
-                padding: 35px 5%;
+                padding: 0 5%;
             }
 
             #about {
-                padding-top: 20px;
+                padding: 48px 0 65px;
             }
 
-            h1 {
-                font-size: 38px;
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 34px;
+            }
+
+            .hero-image {
+                justify-content: flex-start;
+                order: 0;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .profile-photo {
+                max-width: 280px;
+                height: 340px;
+            }
+
+            #about h1 {
+                font-size: 76px;
             }
 
             .intro-text {
                 font-size: 16px;
             }
 
-            .hero-buttons {
+            .about-skills-layout {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-content h2,
+            .skills-content h2,
+            #projects h2,
+            #contact h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .skills-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #about h1 {
+                font-size: 58px;
+                letter-spacing: -0.035em;
+            }
+
+            .profile-photo {
+                max-width: 240px;
+                height: 300px;
+            }
+
+            .skill-card {
+                min-height: auto;
+            }
+
+            .btn-row {
                 gap: 10px;
             }
 
             .btn {
-                padding: 12px 16px;
+                padding: 11px 16px;
             }
         }
-        
-/* DARK THEME + MINT ACCENT */
-:root {
-  --bg: #111827;
-  --card-bg: #1f2937;
-  --mint: #34d399;
-  --mint-hover: #6ee7b7;
-  --text: #f3f4f6;
-  --muted: #9ca3af;
-  --border: #374151;
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--text);
-}
-
-header,
-nav {
-  background-color: var(--bg);
-}
-
-h1, h2, h3 {
-  color: var(--text);
-}
-
-p {
-  color: var(--muted);
-}
-
-a {
-  color: var(--mint);
-}
-
-a:hover {
-  color: var(--mint-hover);
-}
-
-/* Buttons */
-button,
-.btn,
-.button {
-  background-color: var(--mint);
-  color: #111827;
-  border: none;
-}
-
-button:hover,
-.btn:hover,
-.button:hover {
-  background-color: var(--mint-hover);
-}
-
-/* Project cards */
-.project-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--mint);
-}
-
-.project-tools {
-  color: var(--mint);
-}
-
-/* Section spacing and subtle dividers */
-section {
-  border-color: var(--border);
-}
-
-footer {
-  color: var(--muted);
-  border-top: 1px solid var(--border);
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 32px;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.project-card h3 {
-  margin-top: 0;
-}
-
-.project-card a {
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.project-card a:hover {
-  text-decoration: underline;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-        .profile-photo {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #34d399;
-  margin-bottom: 24px;
-  display: block;
-}
-        /* HERO SIDE-BY-SIDE LAYOUT */
-
-#about {
-    padding: 80px 5%;
-}
-
-.hero-layout {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-    align-items: center;
-    gap: 60px;
-}
-
-.hero-content {
-    min-width: 0;
-}
-
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-photo {
-    width: 100%;
-    max-width: 360px;
-    height: 440px;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 24px;
-    border: 2px solid #34d399;
-    display: block;
-    margin: 0;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* MOBILE LAYOUT */
-
-@media (max-width: 768px) {
-
-    #about {
-        padding: 50px 6%;
-    }
-
-    .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .hero-image {
-        justify-content: flex-start;
-    }
-
-    .profile-photo {
-        max-width: 280px;
-        height: 340px;
-    }
-}
-
-        
-/* ABOUT ME SECTION */
-
-.about-section {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 70px 5%;
-}
-
-.about-content {
-    max-width: 800px;
-}
-
-.section-label {
-    color: #34d399;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-}
-
-.about-section h2 {
-    font-size: 32px;
-    margin-bottom: 24px;
-}
-
-.about-section p:not(.section-label) {
-    color: #9ca3af;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 18px;
-}
-
-
-        
-/* ABOUT ME + SKILLS TWO-COLUMN LAYOUT */
-
-.about-skills-section {
-    padding: 80px 5%;
-}
-
-.about-skills-layout {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.about-content,
-.skills-content {
-    min-width: 0;
-}
-
-.about-content h2,
-.skills-content h2 {
-    font-size: 36px;
-    margin-bottom: 24px;
-}
-
-/* SKILL CARDS */
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-}
-
-.skill-card {
-    display: block;
-    background: #1f2937;
-    border: 1px solid #374151;
-    border-radius: 18px;
-    padding: 22px;
-    text-decoration: none;
-    transition: transform 0.2s ease,
-                border-color 0.2s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-4px);
-    border-color: #34d399;
-}
-
-.skill-card h3 {
-    color: #f3f4f6;
-    font-size: 21px;
-    margin: 0;
-}
-
-.skill-card p {
-    color: #9ca3af;
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 14px 0;
-}
-
-.skill-line {
-    display: block;
-    width: 35px;
-    height: 2px;
-    background: #34d399;
-    margin-top: 14px;
-}
-
-.skill-link {
-    color: #34d399;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-/* MOBILE */
-
-@media (max-width: 850px) {
-    .about-skills-layout {
-        grid-template-columns: 1fr;
-        gap: 45px;
-    }
-}
-
-@media (max-width: 500px) {
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-content h2,
-    .skills-content h2 {
-        font-size: 30px;
-    }
-}
-
     </style>
-
 </head>
 
 <body>
-
     <!-- NAVIGATION -->
-
     <header>
-        <nav>
-
+        <nav aria-label="Main navigation">
             <h2>TitoOluwa</h2>
 
             <div class="nav-links">
                 <a href="#about-me">About me</a>
-                <a href="#about">Skills</a>
+                <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
-
         </nav>
     </header>
 
-
-    <!-- MAIN CONTENT -->
-
     <main>
+        <!-- HERO -->
+        <section id="about">
+            <div class="hero-layout">
+                <div class="hero-image">
+                    <img
+                        src="profile-photo.png"
+                        alt="TitoOluwa profile portrait"
+                        class="profile-photo"
+                    >
+                </div>
 
-        <!-- HERO SECTION -->
+                <div class="hero-content">
+                    <p class="intro-label">DATA ANALYST | DATA SCIENTIST</p>
 
-        
-<section id="about">
+                    <h1>My<br> Portfolio</h1>
 
-    <div class="hero-layout">
+                    <p class="intro-text">
+                        I use Python, SQL, Excel, and data visualization
+                        to explore data, solve business problems,
+                        and support informed decisions.
+                    </p>
 
-        <!-- LEFT SIDE: PROFILE PHOTO -->
-        <div class="hero-image">
-            <img src="profile-photo.png"
-                 alt="Profile photo"
-                 class="profile-photo">
-        </div>
+                    <div class="btn-row">
+                        <a class="btn btn-primary" href="#projects">
+                            View My Projects
+                        </a>
 
-    </div>
+                        <a
+                            class="btn btn-outline"
+                            href="https://github.com/TitoOluwa"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub
+                        </a>
 
-        <!-- RIGHT SIDE: TEXT -->
-       <div class="hero-content">
+                        <a
+                            class="btn btn-outline"
+                            href="mailto:oluwatobiadebayo.data@gmail.com"
+                        >
+                            Email Me
+                        </a>
 
-            <p class="intro-label">
-                DATA ANALYST | DATA SCIENTIST
-            </p>
-
-            <h1>
-               My Portfolio
-            </h1>
-
-            <p class="intro-text">
-                I use Python, SQL, Excel, and data visualization
-                to explore data, solve business problems,
-                and support informed decisions.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a class="btn btn-primary" href="#projects">
-                    View My Projects
-                </a>
-
-                <a class="btn btn-outline"
-                   href="https://github.com/TitoOluwa"
-                   target="_blank" rel="noopener noreferrer">
-                    GitHub
-                </a>
-
-                <a class="btn btn-outline"
-                   href="mailto:oluwatobiadebayo.data@gmail.com">
-                    Email Me
-                </a>
-
-                <a class="btn btn-primary"
-                   href="Oluwatobi_Adebayo_CV.pdf"
-                   download>
-                    Download CV
-                </a>
-
+                        <a
+                            class="btn btn-primary"
+                            href="Oluwatobi_Adebayo_CV.pdf"
+                            download
+                        >
+                            Download CV
+                        </a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-        </div>
+        <!-- ABOUT ME + SKILLS -->
+        <section class="about-skills-section">
+            <div class="about-skills-layout">
+                <div class="about-content" id="about-me">
+                    <p class="section-label">GET TO KNOW ME</p>
+                    <h2>About Me</h2>
 
+                    <p>
+                        I’m a data analyst with a strong interest in using
+                        data to understand problems and support better
+                        decisions. I work with Python, SQL, Excel, and data
+                        visualization tools to clean, analyze, and interpret
+                        data. It’s simply something I enjoy doing.
+                    </p>
 
-    
-</section>
+                    <p>
+                        I’m eager to contribute my analytical thinking,
+                        curiosity, and willingness to learn to a team where
+                        data can make a meaningful impact.
+                    </p>
 
-<!-- ABOUT ME + SKILLS SECTION -->
-<section id="about-me" class="about-skills-section">
+                    <div class="btn-row">
+                        <a
+                            class="btn btn-outline"
+                            href="https://www.linkedin.com/in/oluwatobiadebayo-data"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn
+                        </a>
 
-    <div class="about-skills-layout">
+                        <a
+                            class="btn btn-outline"
+                            href="https://medium.com/@titobiloluwaa01"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Medium
+                        </a>
+                    </div>
+                </div>
 
-        <!-- LEFT: ABOUT ME -->
-        <div class="about-content">
+                <div class="skills-content" id="skills">
+                    <p class="section-label">WHAT I WORK WITH</p>
+                    <h2>Skills</h2>
 
-            <p class="section-label">GET TO KNOW ME</p>
+                    <div class="skills-grid">
+                        <a
+                            class="skill-card"
+                            href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/python"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Python skill folder on GitHub"
+                        >
+                            <h3>Python</h3>
+                            <span class="skill-line"></span>
+                            <p>Data cleaning, analysis and EDA</p>
+                        </a>
 
-            <h2>About Me</h2>
+                        <a
+                            class="skill-card"
+                            href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/sql"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="SQL skill folder on GitHub"
+                        >
+                            <h3>SQL</h3>
+                            <span class="skill-line"></span>
+                            <p>Queries, joins and aggregations</p>
+                        </a>
 
-            <p>
-            I’m a data analyst with a strong interest in
-            using data to understand problems and support better
-            decisions. I work with Python, SQL, Excel, and data visualization
-            tools to clean, analyze, and interpret data. It's simply something I enjoy doing.
-        </p>
+                        <a
+                            class="skill-card"
+                            href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/excel"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Excel skill folder on GitHub"
+                        >
+                            <h3>Excel</h3>
+                            <span class="skill-line"></span>
+                            <p>Formulas, pivots and data analysis</p>
+                        </a>
 
-        <p>
-            I’m eager to contribute my analytical thinking,
-            curiosity, and willingness to learn to a team where
-            data can make a meaningful impact.
-        </p>
-
-            <!-- ABOUT ME LINKS -->
-            <div class="hero-buttons">
-
-                <a class="btn btn-outline"
-                   href="https://www.linkedin.com/in/oluwatobiadebayo-data"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    LinkedIn
-                </a>
-
-                <a class="btn btn-outline"
-                   href="https://medium.com/@titobiloluwaa01"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Medium
-                </a>
-
+                        <a
+                            class="skill-card"
+                            href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/data-visualization"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Data visualization skill folder on GitHub"
+                        >
+                            <h3>Power BI & Tableau</h3>
+                            <span class="skill-line"></span>
+                            <p>Dashboards, charts and communicating insights</p>
+                        </a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-        </div>
+        <!-- PROJECTS -->
+        <section id="projects">
+            <p class="section-label">SELECTED WORK</p>
+            <h2>Featured Projects</h2>
 
-        <!-- RIGHT: SKILLS -->
-        <div class="skills-content">
+            <p class="section-intro">
+                Selected projects demonstrating my ability to clean,
+                analyze, and visualize data.
+            </p>
 
-            <p class="section-label">WHAT I WORK WITH</p>
+            <div class="project-grid">
+                <article class="project-card">
+                    <h3>Telecom Customer Churn Analysis</h3>
 
-            <h2>Skills</h2>
+                    <p>
+                        Analyzed customer churn patterns to understand
+                        customer retention and identify factors associated
+                        with churn.
+                    </p>
 
-            <div class="skills-grid">
+                    <p class="project-tools">
+                        Python | SQL | Pandas | Data Visualization
+                    </p>
 
-                <a class="skill-card"
-                   href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/python"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <h3>Python</h3>
-                    <span class="skill-line"></span>
-                    <p>Data cleaning, analysis and EDA</p>
-                    <span class="skill-link">View GitHub folder →</span>
-                </a>
+                    <a
+                        href="https://github.com/TitoOluwa/telecom-customer-churn-analysis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Project on GitHub →
+                    </a>
+                </article>
 
-                <a class="skill-card"
-                   href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/sql"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <h3>SQL</h3>
-                    <span class="skill-line"></span>
-                    <p>Queries, joins and aggregations</p>
-                    <span class="skill-link">View GitHub folder →</span>
-                </a>
+                <article class="project-card">
+                    <h3>Global Electronics Retail Analysis</h3>
 
-                <a class="skill-card"
-                   href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/excel"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <h3>Excel</h3>
-                    <span class="skill-line"></span>
-                    <p>Formulas, pivots and data analysis</p>
-                    <span class="skill-link">View GitHub folder →</span>
-                </a>
+                    <p>
+                        Analyzed global retail sales, customer behavior,
+                        and product performance to identify business
+                        opportunities.
+                    </p>
 
-                <a class="skill-card"
-                   href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/power-bi"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <h3>Power BI</h3>
-                    <span class="skill-line"></span>
-                    <p>Data modeling and dashboards</p>
-                    <span class="skill-link">View GitHub folder →</span>
-                </a>
+                    <p class="project-tools">
+                        Python | Pandas | MySQL | Tableau
+                    </p>
 
-                <a class="skill-card"
-                   href="https://github.com/TitoOluwa/My_Portfolio/tree/main/skills/tableau"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <h3>Tableau</h3>
-                    <span class="skill-line"></span>
-                    <p>Data visualization and reporting</p>
-                    <span class="skill-link">View GitHub folder →</span>
-                </a>
+                    <a
+                        href="https://github.com/TitoOluwa/global_electronics_retailer_analysis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Project on GitHub →
+                    </a>
+                </article>
 
+                <article class="project-card">
+                    <h3>Maven Market Retail BI Analysis</h3>
+
+                    <p>
+                        Built a retail business intelligence project using
+                        Excel, Power Query, Power Pivot, and Power BI to
+                        analyze sales, profit, and customer performance.
+                    </p>
+
+                    <p class="project-tools">
+                        Excel | Power Query | Power Pivot | Power BI
+                    </p>
+
+                    <a
+                        href="https://github.com/TitoOluwa/retail-sales-analysis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Project on GitHub →
+                    </a>
+                </article>
             </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-        
-        <!-- PROJECTS PLACEHOLDER -->
-
-<section id="projects">
-
-    <h2>Featured Projects</h2>
-
-    <p>
-        Selected projects demonstrating my ability
-        to clean, analyze, and visualize data.
-    </p>
-
-    <div class="project-grid">
-
-        <!-- PROJECT 1 -->
-
-        <div class="project-card">
-
-            <h3>Telecom Customer Churn Analysis</h3>
-
-            <p>
-                Analyzed customer churn patterns to
-                understand customer retention and
-                identify factors associated with churn.
-            </p>
-
-            <p class="project-tools">
-                Python | SQL | Pandas | Data Visualization
-            </p>
-
-            <a href="https://github.com/TitoOluwa/telecom-customer-churn-analysis"
-               target="_blank"
-               rel="noopener noreferrer">
-                View Project on GitHub →
-            </a>
-
-        </div>
-
-        
-        <!-- PROJECT 2 -->
-
-        <div class="project-card">
-
-            <h3>Global Electronics Retail Analysis</h3>
-
-            <p>
-                Analyzed global retail sales, customer
-                behavior, and product performance to
-                identify business opportunities.
-            </p>
-
-            <p class="project-tools">
-                Python | Pandas | MySQL | Tableau
-            </p>
-
-            <a href="https://github.com/TitoOluwa/global_electronics_retailer_analysis"
-               target="_blank"
-               rel="noopener noreferrer">
-                View Project on GitHub →
-            </a>
-
-        </div>
-
-        <!-- PROJECT 3 -->
-        <div class="project-card">
-            
-              <h3>Maven Market Retail BI Analysis</h3>
-              <p>
-                  Built a retail business intelligence project using Excel, Power Query, Power Pivot, and Power BI to analyze sales, profit, and customer performance.</p>
-              <p class="project-tools">
-                  Excel | Power Query | Power Pivot | Power BI
-              </p>
-              <a href="https://github.com/TitoOluwa/retail-sales-analysis" 
-                 target="_blank"
-                 rel="noopener noreferrer">
-                  View Project on GitHub →
-              </a>
-        </div>
-    </div>
-
-</section>
-
-
+        </section>
 
         <!-- CONTACT -->
-
         <section id="contact">
-
+            <p class="section-label">LET'S CONNECT</p>
             <h2>Let's Connect</h2>
 
             <p>
                 Get in touch! Let's connect and work together.
             </p>
 
-            <div class="hero-buttons">
+            <div class="btn-row">
+                <a
+                    class="btn btn-outline"
+                    href="https://www.linkedin.com/in/oluwatobiadebayo-data"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
 
-    <a class="btn btn-outline"
-       href="https://www.linkedin.com/in/oluwatobiadebayo-data"
-       target="_blank"
-       rel="noopener noreferrer">
-        LinkedIn
-    </a>
+                <a
+                    class="btn btn-outline"
+                    href="https://github.com/TitoOluwa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
 
-    <a class="btn btn-outline"
-       href="https://github.com/TitoOluwa"
-       target="_blank"
-       rel="noopener noreferrer">
-        GitHub
-    </a>
-
-    <a class="btn btn-outline"
-       href="mailto:oluwatobiadebayo.data@gmail.com"
-       target="_blank"
-       rel="noopener noreferrer">
-        Email me
-    </a>
-
+                <a
+                    class="btn btn-primary"
+                    href="mailto:oluwatobiadebayo.data@gmail.com"
+                >
+                    Email Me
+                </a>
+            </div>
         </section>
-
     </main>
 
-
     <!-- FOOTER -->
-
     <footer>
-
         <p>
             Built and designed by TitoOluwa<br>
-            © 2026 
+            © 2026
         </p>
-
     </footer>
-
 </body>
-
 </html>
